@@ -40,5 +40,78 @@ function getSecondValue(el) {
 }
 
 function getSign() {
-
+    for(let i = 0; i < signs.length; i++) {
+        sign[i].addEventListener('click', (e) => {
+            sign = e.target.getAttribute('value');
+            isFirstValue = true;
+        })
+    }
 }
+getSign();
+
+equals.addEventListener('click', () => {
+    result.innerHTML = "";
+    if(sign === "+") {
+        resultValue = firstValue + secondValue;
+    }else if(sign === "-") {
+        resultValue = firstValue - secondValue;
+    }
+    else if(sign === "x") {
+        resultValue = firstValue * secondValue;
+    }
+    else if(sign === "/") {
+        resultValue = firstValue / secondValue;
+    }
+    result.innerHTML = resultValue;
+    firstValue = resultValue;
+    secondValue = "";
+
+    checkResultLength();
+
+
+})
+
+function checkResultLength() {
+    resultValue = JSON.stringify(resultValue);
+
+    if(resultValue.length >= 8) {
+        resultValue = JSON.parse(resultValue);
+        result.innerHTML = resultValue.toFixed(5);
+    }
+}
+
+negative.addEventListener('click', () => {
+    result.innerHTML = "";
+    if(firstValue !=""){
+        resultValue = -firstValue / 100;
+        firstValue = resultValue;
+
+    }
+    if(firstValue != "" && secondValue != "" && sign != "") {
+        result.innerHTML = resultValue;
+    }
+    result.innerHTML = resultValue;
+})
+
+percent.addEventListener('click', () => {
+    result.innerHTML = "";
+    if(firstValue !=""){
+        resultValue = -firstValue / 100;
+        firstValue = resultValue;
+
+    }
+    if(firstValue != "" && secondValue != "" && sign != "") {
+        result.innerHTML = resultValue / 100;
+    }
+    result.innerHTML = resultValue;
+})
+
+clear.addEventListener('click', () => {
+    result.innerHTML = 0;
+
+    firstValue = "";
+    isFirstValue = false;
+    isSecondValue = false;
+    sign = "";
+    resultValue = 0;
+})

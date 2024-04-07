@@ -23,7 +23,7 @@ html, body #fullheight {
     color: white;
     height: 39px;
 }
-.result span {
+.result .span {
     margin-right: 60px;
     font-size: 210px;
     justify-self: flex-end;
