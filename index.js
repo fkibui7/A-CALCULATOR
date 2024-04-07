@@ -6,9 +6,10 @@ const clear = document.querySelector('.clear');
 const negative = document.querySelector('.negative');
 const percent = document.querySelector('.percent');
 
-let firstValue =  "";
+let firstValue = "";
 let isFirstValue = false;
 let secondValue = "";
+let isSecondValue = false;
 let sign = "";
 let resultValue = 0;
 
